@@ -1,0 +1,92 @@
+ ============= url ===============
+
+    path('Admin-Login-Approve\<int:pk>',views.admin_login_approve,name='admin_login_approve'),
+    path('Admin-Login-Reject\<int:pk>',views.admin_login_reject,name='admin_login_reject'),
+
+
+
+def admin_dashboard(request):
+    if 'admin_id' in request.session:
+        if request.session.has_key('admin_id'):
+            admin_id = request.session['admin_id']
+           
+        else:
+            return redirect('/')
+        
+        Admin_dash = LogRegister_Details.objects.get(id=admin_id)
+        dash_details = BusinessRegister_Details.objects.get(log_id=Admin_dash)
+
+        employees = EmployeeRegister_Details.objects.filter(emp_comp_id=dash_details,emp_active_status=0)
+        
+        content = {'Admin_dash':Admin_dash,
+                   'dash_details':dash_details,
+                   'employees':employees}
+
+        return render(request,'AD_dashboard.html',content)
+
+    else:
+            return redirect('/')
+    
+    
+#Appove Login 
+
+def admin_login_approve(request,pk):
+    if 'admin_id' in request.session:
+        if request.session.has_key('admin_id'):
+            admin_id = request.session['admin_id']
+           
+        else:
+            return redirect('/')
+        
+        Admin_dash = LogRegister_Details.objects.get(id=admin_id)
+        dash_details = BusinessRegister_Details.objects.get(log_id=Admin_dash)
+
+        employees_obj = EmployeeRegister_Details.objects.get(id=pk)
+        employees_obj.emp_active_status = 1
+        employees_obj.save()
+
+        log_obj = LogRegister_Details.objects.get(id=employees_obj.logreg_id.id)
+        log_obj.active_status=1
+        log_obj.save()
+
+        employees = EmployeeRegister_Details.objects.filter(emp_comp_id=dash_details,emp_active_status=0)
+        
+        content = {'Admin_dash':Admin_dash,
+                   'dash_details':dash_details,
+                   'employees':employees}
+
+        return render(request,'AD_dashboard.html',content)
+
+    else:
+            return redirect('/')
+
+
+def admin_login_reject(request,pk):
+    if 'admin_id' in request.session:
+        if request.session.has_key('admin_id'):
+            admin_id = request.session['admin_id']
+           
+        else:
+            return redirect('/')
+        
+        Admin_dash = LogRegister_Details.objects.get(id=admin_id)
+        dash_details = BusinessRegister_Details.objects.get(log_id=Admin_dash)
+
+        employees_obj = EmployeeRegister_Details.objects.get(id=pk)
+        employees_obj.emp_active_status = 2
+        employees_obj.save()
+
+        log_obj = LogRegister_Details.objects.get(id=employees_obj.logreg_id.id)
+        log_obj.active_status=2
+        log_obj.save()
+
+        employees = EmployeeRegister_Details.objects.filter(emp_comp_id=dash_details,emp_active_status=0)
+        
+        content = {'Admin_dash':Admin_dash,
+                   'dash_details':dash_details,
+                   'employees':employees}
+
+        return render(request,'AD_dashboard.html',content)
+
+    else:
+            return redirect('/')

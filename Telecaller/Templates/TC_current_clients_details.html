@@ -1,0 +1,41 @@
+{% extends 'TC_base.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid">
+
+  
+
+    <!-- <h3 class="text-center"><b style="color: rgb(158, 213, 245);text-shadow: 2px 2px 4px #000000; margin-bottom: 40px;">All Company</b></h3> -->
+     <div style="overflow-x:auto;">  
+       <table class="table table-hover  mt-5 " style="background-color: #212529;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+           <thead>
+             <tr>
+               <th scope="col"><b>ID</b></th>
+               <th scope="col"><b>Name</b></th>
+               <th scope="col"><b>Email</b></th>
+               
+               <th scope="col"><b>Contact</b></th>
+               
+               <th scope="col"><b>Action</b></th>
+
+             </tr>
+           </thead>
+           <tbody>
+               
+             <tr>
+               <td class="text-white">1</th>
+               <td><b><a href="" class="text-white">Albin </a></b></td>
+               <td class="text-white">albin@gmail.com</td>
+               <td class="text-white">8987878789</td>
+               <td class="text-white"><a href="" class="btn btn-danger"><b>Update</b></a></td>
+               
+               
+             </tr>
+             
+           </tbody>
+         </table> 
+       </div>
+
+ </div>
+
+{% endblock %}

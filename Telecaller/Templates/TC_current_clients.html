@@ -1,0 +1,83 @@
+{% extends 'TC_base.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid">
+
+  
+  <div class="row mt-3">
+    <div class="col-md-4" id="card1">
+      <div class="card" style="background-color: #212529;">
+        <div class="card-body">
+
+
+          
+
+          <div class="row">
+            <div class="col-md-9">
+              <a href="{% url 'TC_current_clients_details' %}">
+              <h4 class="card-title mb-9 fw-semibold pt-4"><b>ALTOS</b></h4>
+            </a>
+              
+
+            </div>
+            <div class="col">
+              <a href="{% url 'TC_current_clients_details' %}">
+                
+              <i class="icon-lg mdi mdi-arrange-send-backward text-primary ms-auto"></i>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>      
+    
+    <div class="col-md-4" style="width: 100%;">
+      <div class="card" style="background-color: #212529;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-9">
+              <a href="">
+                
+                <h4 class="card-title mb-9 fw-semibold pt-4"><b>GP TECH</b></h4>
+              </a>
+              
+
+            </div>
+            <div class="col">
+              <a href="">
+                <i class="icon-lg mdi mdi-arrange-send-backward text-primary ms-auto"></i>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+    <div class="col-md-4" style="width: 100%;">
+      <div class="card" style="background-color: #212529;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-9">
+              <a href="">
+                
+                <h4 class="card-title mb-9 fw-semibold pt-4"><b>AK TECH</b></h4>
+              </a>
+              
+
+            </div>
+            <div class="col">
+              <a href="">
+                <i class="icon-lg mdi mdi-arrange-send-backward text-primary ms-auto"></i>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+  </div>
+
+ </div>
+
+{% endblock %}
