@@ -176,7 +176,7 @@ def login_submitt(request):
                         
                         elif dash_details.emp_designation_id.dashboard_id == 4:
                              
-                            return render(request,'HR_dashboard.html',content)
+                            return render(request,'TC_dashboard.html',content)
                         
                         else:
                             return render(request,'error-404.html')

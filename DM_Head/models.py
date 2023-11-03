@@ -218,3 +218,21 @@ class TaskDetails(models.Model):
     tad_file = models.JSONField(default=list)
     tad_target = models.IntegerField(default=0)
     tad_status = models.IntegerField(default=0)
+
+class Leads(models.Model):
+    lead_work_regId = models.ForeignKey(WorkRegister, on_delete=models.CASCADE, null=True,default='') 
+    lead_collect_Emp_id = models.ForeignKey(EmployeeRegister_Details, on_delete=models.CASCADE, null=True,default='')
+    lead_name = models.CharField(max_length=255,default='',null=True,blank=True)
+    lead_email = models.EmailField(default='',null=True,blank=True)
+    lead_contact = models.CharField(max_length=255,default='',null=True,blank=True)
+    lead_add_date = models.DateField(auto_now=True,null=True)
+    lead_add_time = models.TimeField(auto_now_add=True,null=True,blank=True)
+    waste_data = models.IntegerField(default=0)
+    lead_status = models.IntegerField(default=0)
+    lead_transfer_date = models.DateField(auto_now=False,null=True)
+    lead_transfer_status = models.IntegerField(default=0)
+
+class lead_Details(models.Model):
+    leadId = models.ForeignKey(Leads, on_delete=models.CASCADE, null=True,default='') 
+    lead_field_name = models.CharField(max_length=255,default='',null=True,blank=True)
+    lead_field_data = models.CharField(max_length=855,default='',null=True,blank=True)      

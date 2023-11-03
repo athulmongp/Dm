@@ -7,7 +7,7 @@ urlpatterns = [
    
     path('TC_dashbord',views.TC_dashbord,name='TC_dashbord'),
     path('TC_current_clients',views.TC_current_clients,name='TC_current_clients'),
-    path('TC_current_clients_details',views.TC_current_clients_details,name='TC_current_clients_details'),
+    path('TC_current_clients_details/<id>',views.TC_current_clients_details,name='TC_current_clients_details'),
     
 
 ]
