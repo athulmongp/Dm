@@ -9,8 +9,10 @@ class Leads_assignto_tc(models.Model):
     Response = models.CharField(max_length=255,default='',null=True,blank=True)
     Reason = models.CharField(max_length=255,default='',null=True,blank=True)
     Assign_Date = models.DateField(auto_now=True,null=True)
+    Update_Date = models.DateField(max_length=255,null=True,blank=True,default='')
     Update_Action = models.IntegerField(default=0)
     Status = models.IntegerField(default=0)
+    Record = models.FileField(upload_to=r'record',default='')
 
 
 

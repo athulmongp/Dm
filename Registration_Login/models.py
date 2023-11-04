@@ -87,7 +87,7 @@ class EmployeeRegister_Details(models.Model):
     emp_pin =  models.CharField(max_length=50,default='',null=True,blank=True)
     emp_location =  models.CharField(max_length=150,default='',null=True,blank=True)
     emp_district =  models.CharField(max_length=150,default='',null=True,blank=True)
-    emp_state =  models.CharField(max_length=150,default='',null=True,blank=True)
+    emp_state =  models.CharField(max_length=150,default='',null=True,blank=True)  
     emp_active_status = models.IntegerField(default=0)
     emp_verify_status = models.IntegerField(default=0)
     emp_reg_date = models.DateField(auto_now_add=True,null=True)

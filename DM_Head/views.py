@@ -11,6 +11,7 @@ from django.utils.decorators import method_decorator
 from django.db.models import Count
 
 
+
 def head_dashboard(request):
     if 'emp_id' in request.session:
         if request.session.has_key('emp_id'):

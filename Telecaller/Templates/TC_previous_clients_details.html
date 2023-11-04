@@ -1,0 +1,70 @@
+{% extends 'TC_base.html' %}
+{% load static %}
+{% block body %}
+
+<div>
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="text-underline-remove" href="{% url 'TC_dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active text-md" aria-current="page">Previous Clients</li>
+      </ol>
+    </nav>
+</div>
+<div class="container-fluid">
+
+
+
+  <!-- <h3 class="text-center"><b style="color: rgb(158, 213, 245);text-shadow: 2px 2px 4px #000000; margin-bottom: 40px;">All Company</b></h3> -->
+  <div style="overflow-x:auto;">
+    <table class="table table-hover  mt-5 "
+      style="border: 1px solid gray; background-color: #191c24;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <thead>
+        <tr>
+          <th scope="col"><b>ID</b></th>
+          <th scope="col"><b>Date</b></th>
+          <th scope="col"><b>Name</b></th>
+          
+          <th scope="col"><b>Email</b></th>
+
+          <th scope="col"><b>Contact</b></th>
+          <th scope="col"><b>Status</b></th>
+
+         
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in data %}
+
+        <tr>
+          <td class="text-white">{{d.id}}</th>
+            <td class="text-white">{{d.Update_Date}}</td>
+          <td><b><a href="" class="text-white">{{d.leadId.lead_name}}</a></b></td>
+          <td class="text-white">{{d.leadId.lead_email}}</td>
+          <td class="text-white">{{d.leadId.lead_contact}}</td>
+          <!-- <td class="text-white"><a href="" class="btn btn-danger" data-toggle="modal"
+              data-target="#myModal"><b>Update</b></a></td> -->
+          {% if d.Response == 'Intrest' %}    
+            <td><div class="badge badge-outline-success" style="width: 50%;">Intrest</div></td>
+          {% endif %}  
+          {% if d.Response == 'waiting' %}    
+            <td><div class="badge badge-outline-warning" style="width: 50%;">waiting</div></td>
+             
+          {% endif %}  
+          {% if d.Response == 'Not intrest' %}  
+          <td><div class="badge badge-outline-danger" style="width: 50%;">Not intrest</div></td>  
+          {% endif %}
+
+
+        </tr>
+        
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+{% endblock %}
