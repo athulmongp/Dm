@@ -58,6 +58,8 @@ def TC_current_clients(request):
         emp_dash = LogRegister_Details.objects.get(id=emp_id,active_status=1)
         dash_details = EmployeeRegister_Details.objects.get(logreg_id=emp_dash,emp_active_status=1)
         data = Leads_assignto_tc.objects.filter(TC_Id= dash_details.id,Update_Action=0)
+        
+        
         print(data)
         
 

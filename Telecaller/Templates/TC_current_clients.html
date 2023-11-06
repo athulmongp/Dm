@@ -16,7 +16,7 @@
     
     {% for d in data %}
 
-    {% if d.leadId.lead_work_regId.clientId == c.clientId  %}
+    {% if d.leadId.lead_work_regId.clientId == c.clientId|slice:"1"  %}
     
    
     
@@ -49,8 +49,10 @@
         </div>
       </div>
     </div>
+
     
     {% endif %}
+    {{ break }}
     
     {% endfor %}
    
