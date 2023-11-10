@@ -1,0 +1,66 @@
+{% extends 'TC_base.html' %}
+{% load static %}
+{% block body %}
+<div>
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="text-underline-remove" href="{% url 'TC_dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active text-md" aria-current="page">Previous Clients</li>
+      </ol>
+    </nav>
+</div>
+<div class="container-fluid">
+  <div class="row pt-4">
+    {% for c in client %}
+ 
+    
+    {% for d in data %}
+
+    {% if d.leadId.lead_work_regId.clientId == c.clientId  %}
+    
+   
+    
+
+
+    <div class="col-md-4  mb-5" id="card1">
+      <div class="card">
+        <div class="card-body">
+
+
+
+
+          <div class="row">
+            <div class="col-md-9">
+              <a href="{% url 'TC_previous_clients_details' d.leadId.lead_work_regId.clientId.id %}">
+                <h5 class="card-title mb-9 fw-semibold" style="text-transform: uppercase;">
+                  <b>{{d.leadId.lead_work_regId.clientId.client_name}}</b></h5>
+              </a>
+
+
+            </div>
+            <div class="col">
+              <a href="{% url 'TC_previous_clients_details' d.leadId.lead_work_regId.clientId.id %}">
+
+                <i class="icon-lg mdi mdi-arrange-send-backward text-primary ms-auto" style="font-size: 30px;"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% endif %}
+    
+    {% endfor %}
+   
+    {% endfor %}
+  </div>
+
+
+
+</div>
+
+
+
+{% endblock %}
